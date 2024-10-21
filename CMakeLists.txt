@@ -1,9 +1,37 @@
-cmake_minimum_required(VERSION 3.10)
-project(google-test)
+cmake_minimum_required(VERSION 3.14)
+project(MyProject)
 
-# 添加 Google Test 库
-find_package(GTest REQUIRED)
-include_directories(${GTEST_INCLUDE_DIRS})
+# 设置 C++ 标准
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-add_executable(runTests test.cpp) # 你的测试文件
-target_link_libraries(runTests ${GTEST_LIBRARIES} pthread)
+# 启用测试
+enable_testing()
+
+# 包含 FetchContent 模块
+include(FetchContent)
+
+# 配置 FetchContent 以下载 Google Test
+FetchContent_Declare(
+        googletest
+        GIT_REPOSITORY https://github.com/google/googletest.git
+        GIT_TAG        release-1.12.1  # 可以根据需要选择最新版本
+)
+
+# 防止 Google Test 在测试期间构建共享库
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+
+# 下载并添加 Google Test
+FetchContent_MakeAvailable(googletest)
+
+# 添加您的源文件
+#add_executable(MyApp test.cpp)
+
+# 添加测试可执行文件
+add_executable(MyTests test.cpp)
+
+# 链接 Google Test 库
+target_link_libraries(MyTests GTest::gtest GTest::gtest_main)
+
+# 添加测试
+add_test(NAME MyTests COMMAND MyTests)
