@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project(MyProject)
+project(google-test-sample)
 
 # 设置 C++ 标准
 set(CMAKE_CXX_STANDARD 17)
@@ -23,9 +23,6 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
 # 下载并添加 Google Test
 FetchContent_MakeAvailable(googletest)
-
-# 添加您的源文件
-#add_executable(MyApp test.cpp)
 
 # 添加测试可执行文件
 add_executable(MyTests test.cpp)
