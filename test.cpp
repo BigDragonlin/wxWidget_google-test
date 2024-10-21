@@ -6,7 +6,7 @@ int Add(int a, int b) {
 
 
 TEST(AdditionTest, HandlesPositiveNumbers) {
-    EXPECT_EQ(Add(1, 2), 10);  // 期待 Add(1, 2) 返回 3
+    EXPECT_EQ(Add(1, 2), 3);  // 期待 Add(1, 2) 返回 3
     EXPECT_EQ(Add(5, 7), 12);
 }
 
