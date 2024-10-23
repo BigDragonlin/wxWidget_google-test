@@ -13,7 +13,6 @@ TEST(SubTest, HandleSubtiveNumber)
 {
 	EXPECT_EQ(Sub(2, 1), 1);
 	EXPECT_EQ(Sub(5, 3), 2);
-	EXPECT_EQ(Sub(1, 1), 2);
 }
 
 int main(int argc, char** argv) {

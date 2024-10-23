@@ -25,7 +25,12 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 # 添加测试可执行文件
-add_executable(MyTests test.cpp)
+file(GLOB TEST_SOURCE "Test/*.cpp")
+file(GLOB TINY_STL "TinySTL/*.h")
+add_executable(MyTests test.cpp
+        ${TEST_SOURCE}
+        ${TINY_STL}
+)
 
 # 链接 Google Test 库
 target_link_libraries(MyTests GTest::gtest GTest::gtest_main)
