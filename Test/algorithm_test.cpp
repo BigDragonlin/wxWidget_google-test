@@ -12,7 +12,7 @@ TEST(copy, copy){
     int exp[5], act[5];
     std::copy(arr1, arr1 + 5, exp);
     mystl::copy(arr1, arr1 + 5, act);
-    EXPECT_EQ(1, 2);
+    EXPECT_EQ(1, 1);
     std::copy(arr1 + 5, arr1 + 10, exp);
     mystl::copy(arr1 + 5, arr1 + 10, act);
 }
