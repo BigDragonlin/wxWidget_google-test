@@ -8,7 +8,7 @@ on:
 
 env:
   # 自定义CMake构建类型 (Release, Debug, RelWithDebInfo等)
-  BUILD_TYPE: Release
+  BUILD_TYPE: Debug
 
 jobs:
   build:
