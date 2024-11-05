@@ -24,14 +24,24 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 # 下载并添加 Google Test
 FetchContent_MakeAvailable(googletest)
 
+##############################################
+set(wxBUILD_SHARED OFF)
+
+FetchContent_Declare(
+        wxWidgets
+        GIT_REPOSITORY https://github.com/wxWidgets/wxWidgets.git
+        GIT_SHALLOW ON
+)
+FetchContent_MakeAvailable(wxWidgets)
+
 # 添加测试可执行文件
 file(GLOB TEST_SOURCE "test/*.cpp")
 add_executable(MyTests
         ${TEST_SOURCE}
 )
-
-# 链接 Google Test 库
-target_link_libraries(MyTests GTest::gtest GTest::gtest_main)
+############################################
+# 链接库
+target_link_libraries(MyTests GTest::gtest GTest::gtest_main wxcore wxnet)
 
 # 添加测试
 add_test(NAME MyTests COMMAND MyTests)
