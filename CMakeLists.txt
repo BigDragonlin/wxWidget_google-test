@@ -26,8 +26,7 @@ FetchContent_MakeAvailable(googletest)
 
 # 添加测试可执行文件
 file(GLOB TEST_SOURCE "Test/*.cpp")
-file(GLOB TINY_STL "TinySTL/*.h")
-add_executable(MyTests test.cpp
+add_executable(MyTests
         ${TEST_SOURCE}
         ${TINY_STL}
 )
